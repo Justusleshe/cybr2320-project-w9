@@ -1,0 +1,10 @@
+.DS_Store
+api/.DS_Store
+api/src/.DS_Store
+api/src/functions/.DS_Store
+.vscode/
+api/.vscode/
+node_modules/
+api/node_modules/
+.env
+api/local.settings.json

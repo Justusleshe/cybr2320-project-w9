@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$1 Test Payment</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Payment Web Application Demo</h1>
+    <p class="subtitle">
+      This site demonstrates a working hosted checkout flow for a $1.00 test item.
+    </p>
+  </header>
+
+  <main class="container">
+    <section class="product-card">
+      <h2>Test Item</h2>
+      <p class="price">$1.00</p>
+      <p class="description">
+        Click the button below to begin a secure hosted checkout. You will be redirected
+        to the payment provider to complete the test payment.
+      </p>
+
+      <ul class="details-list">
+        <li>Item: Test Item</li>
+        <li>Amount: $1.00</li>
+        <li>Payment type: Credit card test payment</li>
+      </ul>
+
+      <button id="checkout-button" class="checkout-button">
+        Buy $1 Test Item
+      </button>
+
+      <p id="status-message" class="status-message"></p>
+    </section>
+  </main>
+</body>
+</html>

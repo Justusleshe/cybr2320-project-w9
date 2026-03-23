@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Success</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dateElement = document.getElementById("confirmation-date");
+      const now = new Date();
+      dateElement.textContent = now.toLocaleString();
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Payment Successful</h1>
+    <p class="subtitle">Your test payment was completed successfully.</p>
+  </header>
+
+  <main class="container">
+    <section class="product-card">
+      <h2>Confirmation Details</h2>
+      <ul class="details-list">
+        <li>Item purchased: Test Item</li>
+        <li>Amount charged: $1.00</li>
+        <li>Confirmation time: <span id="confirmation-date"></span></li>
+      </ul>
+
+      <p class="description">
+        Thank you for completing the payment flow demonstration.
+      </p>
+
+      <a href="index.html" class="checkout-button" style="display:inline-block; text-align:center; text-decoration:none; padding-top:14px; padding-bottom:14px;">
+        Return to Home
+      </a>
+    </section>
+  </main>
+</body>
+</html>
