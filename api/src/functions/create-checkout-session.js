@@ -12,24 +12,14 @@ app.http("create-checkout-session", {
       if (!stripeSecretKey) {
         return {
           status: 500,
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            error: "Missing STRIPE_SECRET_KEY environment variable."
-          })
+          jsonBody: { error: "Missing STRIPE_SECRET_KEY environment variable." }
         };
       }
 
       if (!siteUrl) {
         return {
           status: 500,
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            error: "Missing SITE_URL environment variable."
-          })
+          jsonBody: { error: "Missing SITE_URL environment variable." }
         };
       }
 
@@ -56,24 +46,18 @@ app.http("create-checkout-session", {
 
       return {
         status: 200,
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
+        jsonBody: {
           url: session.url
-        })
+        }
       };
     } catch (error) {
       context.log("Stripe checkout session error:", error);
 
       return {
         status: 500,
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
+        jsonBody: {
           error: error.message || "Unable to create checkout session."
-        })
+        }
       };
     }
   }
