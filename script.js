@@ -1,26 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const checkoutButton = document.getElementById("checkout-button");
-  const statusMessage = document.getElementById("status-message");
+document.getElementById("checkout-button").addEventListener("click", async () => {
+  const status = document.getElementById("status-message");
 
-  checkoutButton.addEventListener("click", async () => {
-    try {
-      checkoutButton.disabled = true;
-      statusMessage.textContent = "Redirecting to secure checkout...";
+  try {
+    status.innerText = "Loading...";
 
-      const response = await fetch("/api/create-checkout-session", {
-        method: "POST"
-      });
+    const response = await fetch("/api/create-checkout-session", {
+      method: "POST"
+    });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to create checkout session.");
-      }
-
-      window.location.href = data.url;
-    } catch (error) {
-      statusMessage.textContent = "Error: " + error.message;
-      checkoutButton.disabled = false;
+    if (!response.ok) {
+      throw new Error("Server error");
     }
-  });
+
+    const data = await response.json();
+
+    if (!data.url) {
+      throw new Error("No checkout URL returned");
+    }
+
+    window.location.href = data.url;
+
+  } catch (error) {
+    status.innerText = "Error: " + error.message;
+  }
 });
