@@ -32,9 +32,7 @@ app.http("create-checkout-session", {
           {
             price_data: {
               currency: "usd",
-              product_data: {
-                name: "Test Item"
-              },
+              product_data: { name: "Test Item" },
               unit_amount: 100
             },
             quantity: 1
@@ -46,13 +44,10 @@ app.http("create-checkout-session", {
 
       return {
         status: 200,
-        jsonBody: {
-          url: session.url
-        }
+        jsonBody: { url: session.url }
       };
     } catch (error) {
       context.log("Stripe checkout session error:", error);
-
       return {
         status: 500,
         jsonBody: {
